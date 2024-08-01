@@ -1,19 +1,22 @@
 function prozent(){
-    const a = document.getElementById("inputA").value;
-    const b = document.getElementById("inputB").value;
-    const d = document.getElementById("days").value; 
+    //Input
+    const a = document.getElementById("initialValue").value;
+    const b = document.getElementById("currentValue").value;
+    const d = document.getElementById("numberOfDays").value; 
 
-    //Calculations and Results
+    //Calculations
     const p = 100 * b / a; 
     const dp = p - 100; 
     const apy = dp * 365 / d; 
     
-    document.getElementById("bofA").innerHTML = "B % of A = " + roundToTwo(p) + "%"; 
-    document.getElementById("bminusA").innerHTML = "% difference between B and A = " + roundToTwo(dp) + "%";
-    document.getElementById("apy").innerHTML = "APY " + roundToTwo(apy) + "%";
+    //Output
+    document.getElementById("currentValuePercent").innerHTML = "Current value = " + roundToTwo(p) + "%"; 
+    document.getElementById("changePercent").innerHTML = "Change = " + roundToTwo(dp) + "%";
+    document.getElementById("apy").innerHTML = "APY = " + roundToTwo(apy) + "%";
 }
 
-function roundToTwo(num) {
-    return +(Math.round(num + "e+2")  + "e-2");
+//Rounding a number n to two decimal places
+function roundToTwo(n) {
+    return +(Math.round(n + "e+2")  + "e-2");
 }
 
